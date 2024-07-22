@@ -3,7 +3,6 @@ import Ayaka from '@/assets/images/ayaka.jpg'
 import Beelzebul from '@/assets/images/beelzebul.jpg'
 import Ganyu from '@/assets/images/ganyu.jpg'
 import Hutao from '@/assets/images/hutao.jpg'
-// import Keqing from '@/assets/images/keqing.jpg'
 import Kokomi from '@/assets/images/kokomi.jpg'
 import Nahida from '@/assets/images/nahida.jpg'
 import Nilou from '@/assets/images/nilou.jpg'
@@ -19,7 +18,6 @@ const themeList: Theme[] = [
       background: '#FCFAF2',
     },
     image: Hutao,
-    url: 'https://www.bilibili.com/video/av591337987/',
   },
   {
     type: 'Nahida',
@@ -30,19 +28,7 @@ const themeList: Theme[] = [
       background: '#F3F7F2',
     },
     image: Nahida,
-    url: 'https://www.bilibili.com/video/BV1wm4y1m7DC/',
   },
-  // {
-  //   type: 'Keqing',
-  //   name: '霆霓快雨',
-  //   description: '千帆齐聚之城',
-  //   color: {
-  //     primary: '#827595',
-  //     background: '#E6E3F6',
-  //   },
-  //   image: Keqing,
-  //   url: 'https://www.bilibili.com/video/BV14K4y1Q7PH/',
-  // },
   {
     type: 'Nilou',
     name: '浮莲舞步',
@@ -52,7 +38,6 @@ const themeList: Theme[] = [
       background: '#DBEAF1',
     },
     image: Nilou,
-    url: 'https://www.bilibili.com/video/BV1dh411g7a9/',
   },
 
   {
@@ -64,7 +49,6 @@ const themeList: Theme[] = [
       background: '#E2E5F5',
     },
     image: Ganyu,
-    url: 'https://www.bilibili.com/video/BV1ZL4y147cB/',
   },
   {
     type: 'Kokomi',
@@ -75,7 +59,6 @@ const themeList: Theme[] = [
       background: '#F2E1DC',
     },
     image: Kokomi,
-    url: 'https://www.bilibili.com/video/BV1ML411N7hm/',
   },
 
   {
@@ -87,7 +70,6 @@ const themeList: Theme[] = [
       background: '#D8E2EC',
     },
     image: Ayaka,
-    url: 'https://www.bilibili.com/video/BV1nY4y1a76M/',
   },
   {
     type: 'Yoimiya',
@@ -98,7 +80,6 @@ const themeList: Theme[] = [
       background: '#F3E8DB',
     },
     image: Yoimiya,
-    url: 'https://www.bilibili.com/video/BV1Zd4y1K76h/',
   },
   {
     type: 'Beelzebul',
@@ -109,7 +90,6 @@ const themeList: Theme[] = [
       background: '#E3DBED',
     },
     image: Beelzebul,
-    url: 'https://www.bilibili.com/video/BV1UY411g7RU/',
   },
 ]
 
