@@ -18,7 +18,7 @@ export const ThemeContext = createContext({} as ThemeProps)
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [count, setCount] = useLocalStorage<number>('viewCount', 0)
-  // 默认第一次访问是胡桃主题
+  // 默认第一次访问的主题
   const randomIndex = count % themeList.length
   const randomTheme = themeList[randomIndex]
   useEffect(() => {

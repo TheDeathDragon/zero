@@ -1,8 +1,8 @@
 import fs from 'fs'
 import { spawn } from 'node:child_process'
 import type { Inspiration } from './type'
-import { defineDocumentType } from '@contentlayer/source-files'
-import { makeSource } from 'contentlayer/source-remote-files'
+import { defineDocumentType } from '@contentlayer2/source-files'
+import { makeSource } from 'contentlayer2/source-remote-files'
 import { bundleMDX } from 'mdx-bundler'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypePrettyCode from 'rehype-pretty-code'
@@ -64,7 +64,7 @@ export const Post = defineDocumentType(() => ({
         const list: Inspiration[] = []
         if (post.category === '一心净土') {
           const regex = /^(.+)(\r?\n)?/
-          const section = post.body.raw.split('## ').filter((e) => e.replace(/[\r\n]/g, '').length)
+          const section: string[] = post.body.raw.split('## ').filter((e: string) => e.replace(/[\r\n]/g, '').length)
           for (const e of section) {
             const result = regex.exec(e)
             const title = result ? result[0] : ''
