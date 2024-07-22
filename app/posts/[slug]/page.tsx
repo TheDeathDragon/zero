@@ -26,7 +26,7 @@ export default function PostLayout({ params }: { params: { slug: string } }) {
     <div className="page">
       <article>
         <h2 className="mb-6 text-4xl italic">{post.title}</h2>
-        <div className="meta mb-12 flex justify-start">
+        <div className="meta mb-12 flex flex-wrap justify-start">
           <Calendar className="mr-1" />
           {format(new Date(post.date), 'yyyy-MM-dd')}
           <Bookmark className="ml-4 mr-1" />

@@ -20,9 +20,11 @@ const Header: FC = () => {
 
   return (
     <div className="header fixed z-10 flex h-16 w-screen items-center justify-between px-6 shadow-sm lg:hidden">
-      <h3 className={clsx(siteFont.className, 'title text-4xl tracking-wider')}>雪落的小屋</h3>
+      <a href="/">
+        <h3 className={clsx(siteFont.className, 'title text-4xl tracking-wider')}>雪落的小屋</h3>
+      </a>
 
-      <nav className={clsx('nav hidden items-center sm:flex', open && 'over')}>
+      <nav className={clsx('nav hidden items-center sm:flex', open && 'over')} onClick={handleToggle}>
         <Link className={clsx(pathname === '/' && 'active')} href="/">
           <ScrollText /> 创作
         </Link>
