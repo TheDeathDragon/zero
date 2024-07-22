@@ -4,6 +4,7 @@ import { FC, useContext } from 'react'
 import { ThemeContext } from '@/app/context'
 import themeList from '@/utils/theme'
 import './index.css'
+import config from '@/utils/config'
 
 interface PanelProps {
   togglePanle: () => void
@@ -11,7 +12,7 @@ interface PanelProps {
 
 const Panel: FC<PanelProps> = ({ togglePanle }) => {
   const { theme, setTheme } = useContext(ThemeContext)
-  const currentTheme = themeList.find((e) => e.type === theme)
+  // const currentTheme = themeList.find((e) => e.type === theme)
 
   return (
     <div className="panel">
@@ -47,10 +48,10 @@ const Panel: FC<PanelProps> = ({ togglePanle }) => {
             <div className="foot">
               <a
                 className="description"
-                href={currentTheme?.url}
+                href={config.contact.blog}
                 rel="noopener noreferrer"
                 target="_blank"
-                data-title={currentTheme?.description}
+                data-title={config.contact.title}
               ></a>
             </div>
           </div>
