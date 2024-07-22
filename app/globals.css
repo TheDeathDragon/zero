@@ -236,4 +236,21 @@
     transform: translateX(5.25rem) rotateY(90deg);
     background-color: var(--background-color);
   }
+
+  ::-webkit-scrollbar {
+    height: 6px;
+    background-color: var(--background-color);
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--background-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--theme-color);
+  }
+
+  * {
+    scrollbar-color: var(--theme-color) var(--background-color);
+  }
 }

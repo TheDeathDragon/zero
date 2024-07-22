@@ -6,8 +6,8 @@ export default function FriendLayout() {
     <div className="page friend">
       <div className="mx-4 mb-4 block leading-7">
         <p>不如来我这儿喝杯茶？嘿~</p>
-        <p>★ Bio：蝉時雨</p>
-        <p>★ Motto：蝉鸣如雨，花宵道中</p>
+        <p>★ Bio：雪落的小屋</p>
+        <p>★ Motto：刹那烟火人间</p>
         <p>★ Blog：https://shiro.la</p>
         <p>
           ★ Avatar：
@@ -22,7 +22,7 @@ export default function FriendLayout() {
           return (
             <li
               key={item.name}
-              className="relative  inline-block transform overflow-hidden text-center duration-300 hover:-translate-y-1"
+              className="relative inline-block transform overflow-hidden text-center duration-300 hover:-translate-y-1"
             >
               <a href={item.link} className="block h-full w-full py-4" target="_blank" rel="noopener noreferrer">
                 {item.name}
