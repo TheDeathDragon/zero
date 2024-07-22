@@ -10,7 +10,7 @@ export const generateStaticParams = async () => allPosts.map((post) => ({ slug: 
 export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post.title === decodeURIComponent(params.slug))
   return {
-    title: `${post?.title} - 蝉時雨`,
+    title: `${post?.title} - 雪落的小屋`,
     description: post?.description,
     keywords: post?.tags.join(','),
   }

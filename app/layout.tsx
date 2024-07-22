@@ -16,10 +16,10 @@ const serif = Noto_Serif_SC({
 })
 
 export const metadata: Metadata = {
-  title: '蝉時雨',
-  description: '蝉鸣如雨 花宵道中',
-  authors: [{ name: '蝉時雨', url: 'https://chanshiyu.com' }],
-  keywords: 'Code, ACG, Zero, 蝉時雨',
+  title: '雪落的小屋',
+  description: '刹那烟火人间',
+  authors: [{ name: '雪落的小屋', url: 'https://Shiro.la' }],
+  keywords: '雪落的小屋',
   icons: {
     icon: [
       { url: '/favicon.ico' },

@@ -1,20 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import {
-  BookMarked,
-  BookOpen,
-  Codepen,
-  Ghost,
-  Github,
-  HeartPulse,
-  Mail,
-  Music,
-  ScrollText,
-  Send,
-  Sparkles,
-  Twitter,
-} from 'lucide-react'
+import { Ghost, Github, Mail, Music, ScrollText, Send, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC, useState } from 'react'
@@ -25,7 +12,7 @@ import Site from '@/components/Site'
 import config from '@/utils/config'
 import './index.css'
 
-const { github, twitter, telegram, email, music, blog } = config.contact
+const { github, telegram, email, music } = config.contact
 
 const Side: FC = () => {
   const pathname = usePathname()
@@ -47,7 +34,7 @@ const Side: FC = () => {
           <Link className={clsx(pathname === '/inspiration' && 'active')} href="/inspiration" data-name="灵感">
             <Sparkles />
           </Link>
-          <Link className={clsx(pathname === '/project' && 'active')} href="/project" data-name="项目">
+          {/* <Link className={clsx(pathname === '/project' && 'active')} href="/project" data-name="项目">
             <Codepen />
           </Link>
           <Link className={clsx(pathname === '/book' && 'active')} href="/book" data-name="书单">
@@ -55,7 +42,7 @@ const Side: FC = () => {
           </Link>
           <Link className={clsx(pathname === '/friend' && 'active')} href="/friend" data-name="友邻">
             <HeartPulse />
-          </Link>
+          </Link> */}
           <Link className={clsx(pathname === '/about' && 'active')} href="/about" data-name="自述">
             <Ghost />
           </Link>
@@ -73,9 +60,6 @@ const Side: FC = () => {
           <a href={github} rel="noopener noreferrer" target="_blank">
             <Github />
           </a>
-          <a href={twitter} rel="noopener noreferrer" target="_blank">
-            <Twitter />
-          </a>
           <a href={telegram} rel="noopener noreferrer" target="_blank">
             <Send />
           </a>
@@ -84,9 +68,6 @@ const Side: FC = () => {
           </a>
           <a href={music} rel="noopener noreferrer" target="_blank">
             <Music />
-          </a>
-          <a href={blog} rel="noopener noreferrer" target="_blank">
-            <BookMarked />
           </a>
         </div>
       </div>

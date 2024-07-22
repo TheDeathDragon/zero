@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://chanshiyu.com
+Host: https://shiro.la
 
 # Sitemaps
-Sitemap: https://chanshiyu.com/sitemap.xml
+Sitemap: https://shiro.la/sitemap.xml

@@ -2,8 +2,8 @@
   "name": "zzz",
   "version": "1.0.0",
   "private": true,
-  "description": "文心雕龙",
-  "author": "蝉時雨 <me@chanshiyu.com>",
+  "description": "雪落的小屋",
+  "author": "那年雪落 <me@shiro.la>",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",

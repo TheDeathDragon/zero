@@ -41,7 +41,7 @@ export const loadImage = (src: string) =>
  */
 export const Nya = () => {
   const labelStyle = 'line-height:22px;color:#FFF;background:#DB493C;border-radius:3px;'
-  const site = 'https://chanshiyu.com'
+  const site = 'https://shiro.la'
   const themeRepo = 'https://github.com/chanshiyucx/zero'
   console.info(`%c 蝉時雨 %c`, labelStyle, '', site)
   console.info('%c 主题 %c', labelStyle, '', themeRepo)

@@ -8,7 +8,7 @@ export default function FriendLayout() {
         <p>不如来我这儿喝杯茶？嘿~</p>
         <p>★ Bio：蝉時雨</p>
         <p>★ Motto：蝉鸣如雨，花宵道中</p>
-        <p>★ Blog：https://chanshiyu.com</p>
+        <p>★ Blog：https://shiro.la</p>
         <p>
           ★ Avatar：
           <a className="avatar" href="/avatar.jpg" target="_blank" rel="noopener noreferrer">

@@ -1,11 +1,10 @@
 const config = {
   contact: {
-    github: 'https://github.com/chanshiyucx',
-    twitter: 'https://twitter.com/chanshiyucx',
-    telegram: 'https://t.me/chanshiyucx',
-    email: 'mailto://me@chanshiyu.com',
-    music: 'https://music.163.com/#/user/home?id=103060582',
-    blog: 'https://chanshiyu.gitbook.io/blog',
+    github: 'https://github.com/TheDeathDragon',
+    telegram: 'https://t.me/MyDarlingOVO',
+    email: 'mailto://me@shiro.la',
+    music: 'https://music.163.com/#/user/home?id=132115986',
+    blog: 'https://shiro.la',
   },
 }
 
