@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { Metadata } from 'next'
 import { Noto_Serif_SC } from 'next/font/google'
 import 'aos/dist/aos.css'
-import Cloud from '@/components/Cloud'
+// import Cloud from '@/components/Cloud'
 import Header from '@/components/Header'
 import Side from '@/components/Side'
 import ThemeProvider from './context'
@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="zh-CN" className={serif.variable}>
       <body>
         <ThemeProvider>
-          <Cloud />
+          {/* <Cloud /> */}
           <Header />
           <Side />
           {children}

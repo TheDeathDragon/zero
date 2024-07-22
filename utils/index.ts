@@ -42,8 +42,7 @@ export const loadImage = (src: string) =>
 export const Nya = () => {
   const labelStyle = 'line-height:22px;color:#FFF;background:#DB493C;border-radius:3px;'
   const site = 'https://shiro.la'
-  const themeRepo = 'https://github.com/chanshiyucx/zero'
-  console.info(`%c 蝉時雨 %c`, labelStyle, '', site)
+  const themeRepo = 'https://github.com/TheDeathDragon/zero.git'
+  console.info(`%c 雪落的小屋 %c`, labelStyle, '', site)
   console.info('%c 主题 %c', labelStyle, '', themeRepo)
-  console.info('~❀~ 发现控制台报错请务必联系博主 ~❀~')
 }
