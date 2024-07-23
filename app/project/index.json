@@ -12,11 +12,11 @@
   {
     "name": "SalesTracker",
     "code": "https://github.com/TheDeathDragon/SalesTracker",
-    "description": "SalesTracker is an application that helps you to track your sales. It's a private project."
+    "description": "SalesTracker is an application that helps odm to track sales."
   },
   {
     "name": "LogCatcher",
     "code": "https://github.com/TheDeathDragon/LogCatcher",
-    "description": "LogCatcher is an application that helps you to catch logs. It's a private project."
+    "description": "LogCatcher is an application that helps odm to catch logs."
   }
 ]
