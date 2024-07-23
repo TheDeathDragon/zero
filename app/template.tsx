@@ -25,7 +25,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       <div
         className={clsx(
           fade ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0',
-          'max-w-full flex-1 transition duration-500 ease-out',
+          'flex-1 transition duration-500 ease-out max-2xl:max-w-3xl max-xl:max-w-xl max-lg:max-w-full max-sm:max-w-full',
         )}
       >
         {children}

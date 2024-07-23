@@ -24,7 +24,7 @@ const Comment: FC<CommentProps> = ({ term }) => {
         reactionsEnabled="0"
         emitMetadata="0"
         inputPosition="top"
-        theme={`/assets/styles/${theme.toLowerCase()}.css`}
+        theme={`https://shiro.la/assets/styles/${theme.toLowerCase()}.css`}
         lang="zh-CN"
         loading="lazy"
       />
