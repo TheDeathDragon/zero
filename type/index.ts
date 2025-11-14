@@ -40,3 +40,22 @@ export interface Inspiration {
   raw: string
   code: string
 }
+
+export interface Post {
+  title: string
+  date: string
+  category: string
+  tags: string[]
+  description?: string
+  content: string
+  slug: string
+  summary: {
+    code: string
+    raw: string
+  }
+  body: {
+    code: string
+    raw: string
+  }
+  inspiration: Inspiration[]
+}
