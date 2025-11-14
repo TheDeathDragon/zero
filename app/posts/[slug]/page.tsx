@@ -1,14 +1,25 @@
-import { allPosts } from 'contentlayer/generated'
 import { format } from 'date-fns'
 import { Bookmark, Calendar, Tag } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import rehypeExternalLinks from 'rehype-external-links'
+import rehypePrettyCode from 'rehype-pretty-code'
+import remarkGfm from 'remark-gfm'
 import Comment from '@/components/Comment'
-import MDX from '@/components/MDX'
+import { getPostBySlug } from '@/lib/mdx'
+import Image from '@/components/MDX/Image'
 
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post.title }))
+// 使用动态路由，在运行时生成
+export const dynamic = 'force-dynamic'
+export const revalidate = 60 // 60秒后重新验证
+
+// export const generateStaticParams = async () => {
+//   const slugs = await getAllPostSlugs()
+//   return slugs.map((slug) => ({ slug }))
+// }
 
 export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post.title === decodeURIComponent(params.slug))
+  const post = await getPostBySlug(params.slug)
   return {
     title: `${post?.title} - 雪落的小屋`,
     description: post?.description,
@@ -16,11 +27,35 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
   }
 }
 
-export default function PostLayout({ params }: { params: { slug: string } }) {
-  const post = allPosts.find((post) => post.title === decodeURIComponent(params.slug))
+export default async function PostLayout({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug)
+
   if (!post) {
     return notFound()
   }
+
+  // 编译 MDX 内容
+  const { content } = await compileMDX({
+    source: post.content,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [
+          [rehypeExternalLinks, { rel: ['nofollow'] }],
+          [
+            rehypePrettyCode,
+            {
+              theme: 'material-theme-lighter',
+            },
+          ],
+        ],
+      },
+    },
+    components: {
+      img: Image,
+    },
+  })
 
   return (
     <div className="page">
@@ -38,7 +73,7 @@ export default function PostLayout({ params }: { params: { slug: string } }) {
             </span>
           ))}
         </div>
-        <MDX code={post.body.code} />
+        <div className="prose max-w-full">{content}</div>
       </article>
       <Comment term={post.title} />
     </div>

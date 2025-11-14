@@ -1,41 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://shiro.la/friend</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/book</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/project</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/inspiration</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/about</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Linux 下 DD 安装 Windows</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Nginx 编译启用谷歌 Brotli 高级压缩算法</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/移动光猫如何改桥接让路由来拨号</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/如何开启 Google BBR 加速</loc><lastmod>2024-07-23T05:40:52.063Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Hexo 在 Windows 下的搭建与基本操作</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/海市蜃楼之馆全结局全成就攻略</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/SQL学习小记</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/整理了一些自己常用的脚本</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/代码命名风格</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/龙族中让人触动的句子</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/通过CSS的控制来改变火狐的滚动条</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/最近又重新打了一遍《空之轨迹》FC</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Centos7上基于宝塔面板的NodeBB部署过程</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Centos7上部署属于自己的CSGO服务器</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/通过haveged与rng-tools提高系统熵池的补充速率</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Centos7上搭建属于自己的Teamspeak服务器</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/夜雨有感</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/新装备！小米手环5</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/首次尝试！自己的第一副客制化键盘，双模、RGB、热插拔，真香~</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/记一次OTA失败过程分析总结</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/通过预置KernelSU到Android构建中来获取Root权限</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Repo同步代码注意事项</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Selinux权限以及neverallow编译报错</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Android签名Key的生成与使用</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Android-Fragment学习</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Parcelable和Serializable的区别和比较</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/MakeFile基本语法学习</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/Android中SharedPreference的apply与commit方法</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/导入Framework到AndroidStudio中编译</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/家是永远的港湾</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/关于</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shiro.la/posts/灵感</loc><lastmod>2024-07-23T05:40:52.064Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://shiro.la/book</loc><lastmod>2025-11-14T04:09:16.054Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://shiro.la/friend</loc><lastmod>2025-11-14T04:09:16.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://shiro.la/project</loc><lastmod>2025-11-14T04:09:16.055Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
