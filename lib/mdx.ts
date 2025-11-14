@@ -4,6 +4,65 @@ import { getAllMarkdownFiles, getFileContentRaw } from './github'
 import type { Inspiration, Post } from '@/type'
 
 /**
+ * 生成文章摘要
+ * @param content - Markdown 内容
+ * @returns 摘要文本
+ */
+function generateSummary(content: string): string {
+  // 分割成段落
+  const paragraphs = content.split('\n\n')
+
+  // 找到第一个非空段落
+  let firstParagraph = ''
+  for (const para of paragraphs) {
+    const trimmed = para.trim()
+    // 跳过标题、代码块、引用等
+    if (
+      trimmed &&
+      !trimmed.startsWith('#') &&
+      !trimmed.startsWith('```') &&
+      !trimmed.startsWith('>') &&
+      !trimmed.startsWith('|') &&
+      !trimmed.startsWith('-') &&
+      !trimmed.startsWith('*')
+    ) {
+      firstParagraph = trimmed
+      break
+    }
+  }
+
+  // 如果没找到合适的段落，取第一段
+  if (!firstParagraph && paragraphs.length > 0) {
+    firstParagraph = paragraphs[0].trim()
+  }
+
+  // 去除 markdown 语法
+  let summary = firstParagraph
+    .replace(/!\[.*?\]\(.*?\)/g, '') // 图片
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // 链接
+    .replace(/`([^`]+)`/g, '$1') // 行内代码
+    .replace(/\*\*([^*]+)\*\*/g, '$1') // 加粗
+    .replace(/\*([^*]+)\*/g, '$1') // 斜体
+    .replace(/__([^_]+)__/g, '$1') // 加粗
+    .replace(/_([^_]+)_/g, '$1') // 斜体
+    .replace(/~~([^~]+)~~/g, '$1') // 删除线
+    .replace(/\n/g, ' ') // 换行改为空格
+    .replace(/\s+/g, ' ') // 多个空格合并为一个
+    .trim()
+
+  // 限制长度为 150 字符
+  const maxLength = 150
+  if (summary.length > maxLength) {
+    // 在最后一个空格处截断，避免在词中间截断
+    const truncated = summary.slice(0, maxLength)
+    const lastSpace = truncated.lastIndexOf(' ')
+    summary = (lastSpace > 100 ? truncated.slice(0, lastSpace) : truncated) + '...'
+  }
+
+  return summary || '暂无摘要'
+}
+
+/**
  * 解析单个 Markdown 文件（轻量级，不编译 MDX）
  * @param content - Markdown 内容
  * @returns Post 对象
@@ -21,10 +80,10 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
   // 生成 slug（使用标题）
   const slug = title
 
-  // 生成摘要（取前 200 个字符，纯文本，不编译）
-  const summaryText = rawContent.slice(0, 200).trim() + (rawContent.length > 200 ? '...' : '')
+  // 生成摘要（提取第一段，去除 markdown 语法）
+  const summaryText = generateSummary(rawContent)
 
-  // 处理灵感内容（"一心净土"分类）- 只提取标题和原始内容，不编译
+  // 处理灵感内容（"一心净土"分类）- 只提取标题和摘要
   const inspirations: Inspiration[] = []
   if (category === '一心净土') {
     const lines = rawContent.split('\n')
@@ -36,9 +95,11 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
         // 保存上一个灵感
         if (currentTitle && currentContent.length > 0) {
           const inspirationText = currentContent.join('\n')
+          // 生成灵感摘要
+          const inspirationSummary = generateSummary(inspirationText)
           inspirations.push({
             title: currentTitle,
-            raw: inspirationText,
+            raw: inspirationSummary,
             code: '', // 不在列表加载时编译，按需编译
           })
         }
@@ -53,9 +114,11 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
     // 保存最后一个灵感
     if (currentTitle && currentContent.length > 0) {
       const inspirationText = currentContent.join('\n')
+      // 生成灵感摘要
+      const inspirationSummary = generateSummary(inspirationText)
       inspirations.push({
         title: currentTitle,
-        raw: inspirationText,
+        raw: inspirationSummary,
         code: '', // 不在列表加载时编译，按需编译
       })
     }
