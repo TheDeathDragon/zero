@@ -35,9 +35,7 @@ export async function getGitHubFiles(path: string = CONTENT_PATH): Promise<GitHu
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       }),
     },
-    next: {
-      revalidate: 3600, // 缓存 1 小时
-    },
+    cache: 'force-cache', // 构建时缓存，永不重新验证
   })
 
   if (!response.ok) {
@@ -84,9 +82,7 @@ export async function getFileContent(path: string): Promise<string> {
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       }),
     },
-    next: {
-      revalidate: 3600, // 缓存 1 小时
-    },
+    cache: 'force-cache', // 构建时缓存，永不重新验证
   })
 
   if (!response.ok) {
@@ -112,9 +108,7 @@ export async function getFileContentRaw(path: string): Promise<string> {
   const url = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/${path}`
 
   const response = await fetch(url, {
-    next: {
-      revalidate: 3600, // 缓存 1 小时
-    },
+    cache: 'force-cache', // 构建时缓存，永不重新验证
   })
 
   if (!response.ok) {

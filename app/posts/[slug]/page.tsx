@@ -1,21 +1,19 @@
 import { format } from 'date-fns'
 import { Bookmark, Calendar, Tag } from 'lucide-react'
-import { notFound } from 'next/navigation'
 import { compileMDX } from 'next-mdx-remote/rsc'
+import { notFound } from 'next/navigation'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import Comment from '@/components/Comment'
-import { getPostBySlug } from '@/lib/mdx'
 import Image from '@/components/MDX/Image'
+import { getAllPostSlugs, getPostBySlug } from '@/lib/mdx'
 
-// 使用动态路由，在运行时生成
-export const revalidate = 3600 // 缓存 1 小时
-
-// export const generateStaticParams = async () => {
-//   const slugs = await getAllPostSlugs()
-//   return slugs.map((slug) => ({ slug }))
-// }
+// 静态生成所有文章页面
+export const generateStaticParams = async () => {
+  const slugs = await getAllPostSlugs()
+  return slugs.map((slug) => ({ slug }))
+}
 
 export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
   const post = await getPostBySlug(params.slug)

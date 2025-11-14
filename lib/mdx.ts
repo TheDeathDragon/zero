@@ -1,7 +1,6 @@
-import { unstable_cache } from 'next/cache'
+import type { Inspiration, Post } from '@/type'
 import matter from 'gray-matter'
 import { getAllMarkdownFiles, getFileContentRaw } from './github'
-import type { Inspiration, Post } from '@/type'
 
 /**
  * 生成文章摘要
@@ -145,10 +144,10 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
 }
 
 /**
- * 获取所有文章（内部实现）
+ * 获取所有文章
  * @returns Post 数组
  */
-async function getAllPostsInternal(): Promise<Post[]> {
+export async function getAllPosts(): Promise<Post[]> {
   const files = await getAllMarkdownFiles()
   const posts: Post[] = []
 
@@ -169,19 +168,6 @@ async function getAllPostsInternal(): Promise<Post[]> {
   // 按日期排序
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
-
-/**
- * 获取所有文章（带缓存）
- * @returns Post 数组
- */
-export const getAllPosts = unstable_cache(
-  async () => getAllPostsInternal(),
-  ['all-posts'],
-  {
-    revalidate: 3600, // 缓存 1 小时
-    tags: ['posts'],
-  }
-)
 
 /**
  * 根据 slug 获取单篇文章

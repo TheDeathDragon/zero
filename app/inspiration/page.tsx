@@ -1,8 +1,6 @@
 import type { Inspiration } from '@/type'
-import { getAllPosts } from '@/lib/mdx'
 import InspirationList from '@/components/InspirationList'
-
-export const revalidate = 3600 // 缓存 1 小时
+import { getAllPosts } from '@/lib/mdx'
 
 export default async function InspirationLayout() {
   const allPosts = await getAllPosts()

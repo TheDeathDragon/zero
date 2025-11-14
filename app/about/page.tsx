@@ -3,10 +3,8 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import Comment from '@/components/Comment'
-import { getAllPosts } from '@/lib/mdx'
 import Image from '@/components/MDX/Image'
-
-export const revalidate = 3600 // 缓存 1 小时
+import { getAllPosts } from '@/lib/mdx'
 
 export default async function AboutLayout() {
   const allPosts = await getAllPosts()
