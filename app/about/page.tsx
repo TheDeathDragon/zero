@@ -6,8 +6,7 @@ import Comment from '@/components/Comment'
 import { getAllPosts } from '@/lib/mdx'
 import Image from '@/components/MDX/Image'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 60
+export const revalidate = 3600 // 缓存 1 小时
 
 export default async function AboutLayout() {
   const allPosts = await getAllPosts()

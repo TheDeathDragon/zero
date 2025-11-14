@@ -10,8 +10,7 @@ import { getPostBySlug } from '@/lib/mdx'
 import Image from '@/components/MDX/Image'
 
 // 使用动态路由，在运行时生成
-export const dynamic = 'force-dynamic'
-export const revalidate = 60 // 60秒后重新验证
+export const revalidate = 3600 // 缓存 1 小时
 
 // export const generateStaticParams = async () => {
 //   const slugs = await getAllPostSlugs()

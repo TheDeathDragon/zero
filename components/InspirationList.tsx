@@ -107,10 +107,7 @@ export default function InspirationList({ allInspirations }: InspirationListProp
               onMouseEnter={handleMask}
             >
               <h2 className="mb-2 text-xl italic">{inspiration.title}</h2>
-              <div
-                className="prose max-w-full"
-                dangerouslySetInnerHTML={{ __html: inspiration.raw }}
-              />
+              <p className="text-sm text-gray-600">{inspiration.raw}</p>
             </article>
           )
         })}

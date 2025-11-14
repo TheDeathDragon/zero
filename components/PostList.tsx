@@ -113,10 +113,7 @@ export default function PostList({ initialPosts }: PostListProps) {
               onMouseEnter={handleMask}
             >
               <h2 className="mb-2 text-xl italic">{post.title}</h2>
-              <div
-                className="prose max-w-full"
-                dangerouslySetInnerHTML={{ __html: post.summary.raw }}
-              />
+              <p className="text-sm text-gray-600">{post.summary.raw}</p>
               <div className="meta mt-2 flex justify-start">
                 <Calendar className="mr-1" />
                 {format(new Date(post.date), 'yyyy-MM-dd')}

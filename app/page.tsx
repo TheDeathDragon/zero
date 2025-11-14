@@ -1,8 +1,7 @@
 import { getAllPosts } from '@/lib/mdx'
 import PostList from '@/components/PostList'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 60
+export const revalidate = 3600 // 缓存 1 小时
 
 export default async function Page() {
   const allPosts = await getAllPosts()

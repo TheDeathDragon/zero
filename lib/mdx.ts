@@ -1,13 +1,10 @@
-import { compileMDX } from 'next-mdx-remote/rsc'
+import { unstable_cache } from 'next/cache'
 import matter from 'gray-matter'
-import rehypeExternalLinks from 'rehype-external-links'
-import rehypePrettyCode from 'rehype-pretty-code'
-import remarkGfm from 'remark-gfm'
 import { getAllMarkdownFiles, getFileContentRaw } from './github'
 import type { Inspiration, Post } from '@/type'
 
 /**
- * 解析单个 Markdown 文件
+ * 解析单个 Markdown 文件（轻量级，不编译 MDX）
  * @param content - Markdown 内容
  * @returns Post 对象
  */
@@ -24,39 +21,10 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
   // 生成 slug（使用标题）
   const slug = title
 
-  // 编译完整内容
-  const { content: body } = await compileMDX({
-    source: rawContent,
-    options: {
-      parseFrontmatter: false,
-      mdxOptions: {
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [
-          [rehypeExternalLinks, { rel: ['nofollow'] }],
-          [
-            rehypePrettyCode,
-            {
-              theme: 'material-theme-lighter',
-            },
-          ],
-        ],
-      },
-    },
-  })
-
-  // 生成摘要（取前 200 个字符）
+  // 生成摘要（取前 200 个字符，纯文本，不编译）
   const summaryText = rawContent.slice(0, 200).trim() + (rawContent.length > 200 ? '...' : '')
-  const { content: summaryContent } = await compileMDX({
-    source: summaryText,
-    options: {
-      parseFrontmatter: false,
-      mdxOptions: {
-        remarkPlugins: [remarkGfm],
-      },
-    },
-  })
 
-  // 处理灵感内容（"一心净土"分类）
+  // 处理灵感内容（"一心净土"分类）- 只提取标题和原始内容，不编译
   const inspirations: Inspiration[] = []
   if (category === '一心净土') {
     const lines = rawContent.split('\n')
@@ -68,19 +36,10 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
         // 保存上一个灵感
         if (currentTitle && currentContent.length > 0) {
           const inspirationText = currentContent.join('\n')
-          const { content: inspirationContent } = await compileMDX({
-            source: inspirationText,
-            options: {
-              parseFrontmatter: false,
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-              },
-            },
-          })
           inspirations.push({
             title: currentTitle,
             raw: inspirationText,
-            code: JSON.stringify(inspirationContent),
+            code: '', // 不在列表加载时编译，按需编译
           })
         }
         // 开始新的灵感
@@ -94,19 +53,10 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
     // 保存最后一个灵感
     if (currentTitle && currentContent.length > 0) {
       const inspirationText = currentContent.join('\n')
-      const { content: inspirationContent } = await compileMDX({
-        source: inspirationText,
-        options: {
-          parseFrontmatter: false,
-          mdxOptions: {
-            remarkPlugins: [remarkGfm],
-          },
-        },
-      })
       inspirations.push({
         title: currentTitle,
         raw: inspirationText,
-        code: JSON.stringify(inspirationContent),
+        code: '', // 不在列表加载时编译，按需编译
       })
     }
   }
@@ -120,11 +70,11 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
     content: rawContent,
     slug,
     summary: {
-      code: JSON.stringify(summaryContent),
+      code: '', // 不在列表加载时编译，使用 raw
       raw: summaryText,
     },
     body: {
-      code: JSON.stringify(body),
+      code: '', // 不在列表加载时编译，在详情页按需编译
       raw: rawContent,
     },
     inspiration: inspirations,
@@ -132,26 +82,43 @@ export async function parseMarkdownFile(content: string): Promise<Post> {
 }
 
 /**
- * 获取所有文章
+ * 获取所有文章（内部实现）
  * @returns Post 数组
  */
-export async function getAllPosts(): Promise<Post[]> {
+async function getAllPostsInternal(): Promise<Post[]> {
   const files = await getAllMarkdownFiles()
   const posts: Post[] = []
 
-  for (const file of files) {
+  // 并行处理以提高性能
+  const postPromises = files.map(async (file) => {
     try {
       const content = await getFileContentRaw(file.path)
-      const post = await parseMarkdownFile(content)
-      posts.push(post)
+      return await parseMarkdownFile(content)
     } catch (error) {
       console.error(`Error parsing file ${file.path}:`, error)
+      return null
     }
-  }
+  })
+
+  const results = await Promise.all(postPromises)
+  posts.push(...results.filter((post): post is Post => post !== null))
 
   // 按日期排序
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
+
+/**
+ * 获取所有文章（带缓存）
+ * @returns Post 数组
+ */
+export const getAllPosts = unstable_cache(
+  async () => getAllPostsInternal(),
+  ['all-posts'],
+  {
+    revalidate: 3600, // 缓存 1 小时
+    tags: ['posts'],
+  }
+)
 
 /**
  * 根据 slug 获取单篇文章

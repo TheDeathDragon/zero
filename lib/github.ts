@@ -36,7 +36,7 @@ export async function getGitHubFiles(path: string = CONTENT_PATH): Promise<GitHu
       }),
     },
     next: {
-      revalidate: 60, // 缓存 60 秒
+      revalidate: 3600, // 缓存 1 小时
     },
   })
 
@@ -85,7 +85,7 @@ export async function getFileContent(path: string): Promise<string> {
       }),
     },
     next: {
-      revalidate: 60, // 缓存 60 秒
+      revalidate: 3600, // 缓存 1 小时
     },
   })
 
@@ -113,7 +113,7 @@ export async function getFileContentRaw(path: string): Promise<string> {
 
   const response = await fetch(url, {
     next: {
-      revalidate: 60, // 缓存 60 秒
+      revalidate: 3600, // 缓存 1 小时
     },
   })
 
